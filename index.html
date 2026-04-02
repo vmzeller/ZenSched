@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenSched Dashboard</title>
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="logo-placeholder.png" alt="Logo" class="logo-img">
+    </div>
+
+    <nav class="nav-links">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Calendar</a>
+        <a href="#">Stress Tools</a>
+        <a href="#">Settings</a>
+    </nav>
+
+    <div class="nav-spacer"></div>
+</header>
+
+<div class="page-wrapper">
+<main class="dashboard-container">
+
+    <!-- SCHEDULE -->
+    <section class="schedule-column">
+        <h2>Schedule Today</h2>
+        <div class="schedule-box">
+            <div class="hour-row"><span class="time">6 AM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">7 AM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">8 AM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">9 AM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">10 AM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">11 AM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">12 PM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">1 PM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">2 PM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">3 PM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">4 PM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">5 PM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">6 PM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">7 PM</span><input type="text" placeholder="Add task..."></div>
+            <div class="hour-row"><span class="time">8 PM</span><input type="text" placeholder="Add task..."></div>
+        </div>
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <section class="tasks-column">
+
+        <!-- TASK TITLE (moved here to match schedule layout) -->
+        <h2>Top 3 Priority Tasks</h2>
+
+        <!-- MOOD -->
+        <div class="mood-card">
+            <h3>How are you feeling today?</h3>
+            <div class="mood-icons">
+                <div class="mood-option">
+                    <img src="great.png" class="mood-img">
+                    <span>Great</span>
+                </div>
+                <div class="mood-option">
+                    <img src="ok.png" class="mood-img">
+                    <span>Ok</span>
+                </div>
+                <div class="mood-option">
+                    <img src="sad.png" class="mood-img">
+                    <span>Sad</span>
+                </div>
+                <div class="mood-option">
+                    <img src="angry.png" class="mood-img">
+                    <span>Angry</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TASKS -->
+        <div class="priority-card">
+            <div class="task-list">
+                <label class="task-item">
+                    <input type="text" class="task-input" value="Finish Homework">
+                    <input type="checkbox" class="task-checkbox">
+                </label>
+                <label class="task-item">
+                    <input type="text" class="task-input" value="Do Laundry">
+                    <input type="checkbox" class="task-checkbox">
+                </label>
+                <label class="task-item">
+                    <input type="text" class="task-input" value="Meditate">
+                    <input type="checkbox" class="task-checkbox">
+                </label>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h2>About Us</h2>
+            <p>
+                At ZenSched, we believe that productivity shouldn't come at the cost of your mental well-being. 
+                Our platform is designed using calming design principles to reduce cognitive load and digital anxiety. 
+                By integrating daily planning with proactive stress-relief tools, we help you manage your time and your peace of mind all in one place.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h2>Latest Information</h2>
+            <ul>
+                <li>Make sure to record how you are feeling every day to calculate your mood throughout the month!</li>
+                <li>New Breathing Modules: We’ve added new guided exercises to the Wellness Toolbox to help you reset during busy workdays.</li>
+                <li>Check out our calendar to manage all of those daily tasks!</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <img src="https://via.placeholder.com/400x250" class="footer-photo">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

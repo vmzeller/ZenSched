@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+:root {
+    --primary-bg: #ffffff;
+    --nav-bg: #72577c;
+    --footer-bg: #4e3a56;
+    --task-bg: #bfabc8;
+    --border-purple: #bfabc6;
+    --text-dark: #4a4a4a;
+    --text-light: #ffffff;
+}
+
+body {
+    background-color: var(--primary-bg);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nav-bg);
+    color: white;
+    height: 80px;
+    padding: 0 4%;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 60px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid white;
+}
+
+/* DASHBOARD WRAPPER */
+.page-wrapper {
+    background: #f8f6fb;
+    margin: 30px;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.dashboard-container {
+    display: flex;
+    gap: 30px;
+}
+
+/* SCHEDULE */
+.schedule-column {
+    flex: 6;
+    border-right: 6px solid var(--border-purple);
+    padding-right: 20px;
+}
+
+/* Titles (shared alignment) */
+.schedule-column h2,
+.tasks-column h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* SCROLL AREA */
+.schedule-box {
+    background: white;
+    border: 1px solid var(--border-purple);
+    border-radius: 15px;
+    max-height: 400px;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+/* Custom scrollbar */
+.schedule-box::-webkit-scrollbar {
+    width: 10px;
+}
+
+.schedule-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.schedule-box::-webkit-scrollbar-thumb {
+    background: #bfabc6;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+/* Schedule rows */
+.hour-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2dbe9;
+}
+
+.hour-row:hover {
+    background: #f2eef7;
+}
+
+.time {
+    width: 60px;
+    color: #777;
+}
+
+.hour-row input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+}
+
+/* RIGHT COLUMN */
+.tasks-column {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* MOOD */
+.mood-card {
+    background: white;
+    border: 1px solid var(--border-purple);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.mood-card h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.mood-icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mood-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.mood-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.mood-img:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease;
+}
+
+/* TASKS */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    background: var(--task-bg);
+    color: white;
+    padding: 18px 25px;
+    border-radius: 14px;
+}
+
+.task-input {
+    border: none;
+    background: transparent;
+    color: white;
+    width: 100%;
+    outline: none;
+}
+
+.task-checkbox {
+    margin-left: auto;
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+    appearance: none;
+}
+
+.task-checkbox:checked {
+    background: white;
+}
+
+/* FOOTER */
+.footer {
+    background: var(--footer-bg);
+    color: white;
+    padding: 60px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-photo {
+    width: 100%;
+    border-radius: 8px;
+}
