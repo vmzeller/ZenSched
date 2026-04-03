@@ -1,8 +1,9 @@
+/* 1. GLOBAL RESET & BASE STYLES */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
 }
 
 :root {
@@ -11,7 +12,7 @@
     --footer-bg: #4e3a56;
     --task-bg: #bfabc8;
     --border-purple: #bfabc6;
-    --text-dark: #4a4a4a;
+    --text-dark: #000000;
     --text-light: #ffffff;
 }
 
@@ -19,7 +20,7 @@ body {
     background-color: var(--primary-bg);
 }
 
-/* NAVBAR */
+/* 2. NAVIGATION BAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -31,84 +32,71 @@ body {
 }
 
 .logo-img {
-    height: 50px;
+    height: 60px;
     width: auto;
 }
 
 .nav-links {
     display: flex;
-    gap: 60px;
+    gap: 70px;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 1.4rem;
+    font-weight: 400;
 }
 
 .nav-links a.active {
     border-bottom: 3px solid white;
 }
 
-/* DASHBOARD WRAPPER */
+/* 3. MAIN PAGE LAYOUT */
 .page-wrapper {
     background: #f8f6fb;
     margin: 30px;
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 40px;
+    padding: 40px;
 }
 
 .dashboard-container {
     display: flex;
-    gap: 30px;
+    gap: 60px;
 }
 
-/* SCHEDULE */
-.schedule-column {
-    flex: 6;
-    border-right: 6px solid var(--border-purple);
-    padding-right: 20px;
-}
-
-/* Titles (shared alignment) */
+/* 4. HEADERS (BOLD STYLE FROM SCREENSHOT) */
 .schedule-column h2,
 .tasks-column h2 {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 300; /* Extra bold for the screenshot look */
+    letter-spacing:.5px;
+    color: #333;
 }
 
-/* SCROLL AREA */
+/* 5. SCHEDULE COLUMN (LEFT) */
+.schedule-column {
+    flex: 1.5;
+    border-right: 6px solid var(--border-purple); /* Thick divider */
+    padding-right: 40px;
+}
+
 .schedule-box {
     background: white;
-    border: 1px solid var(--border-purple);
+    border: 1px solid #ccc;
     border-radius: 15px;
-    max-height: 400px;
-    overflow-y: scroll;
-    padding-right: 10px;
+    max-height: 450px;
+    overflow-y: auto;
 }
 
-/* Custom scrollbar */
-.schedule-box::-webkit-scrollbar {
-    width: 10px;
-}
-
-.schedule-box::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.schedule-box::-webkit-scrollbar-thumb {
-    background: #bfabc6;
-    border-radius: 10px;
-    border: 2px solid #ffffff;
-}
-
-/* Schedule rows */
 .hour-row {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 12px 15px;
-    border-bottom: 1px solid #e2dbe9;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .hour-row:hover {
@@ -118,6 +106,8 @@ body {
 .time {
     width: 60px;
     color: #777;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .hour-row input {
@@ -125,28 +115,31 @@ body {
     outline: none;
     background: transparent;
     width: 100%;
+    font-size: 14px;
 }
 
-/* RIGHT COLUMN */
+/* 6. TASKS COLUMN (RIGHT) */
 .tasks-column {
-    flex: 4;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 
-/* MOOD */
+/* MOOD CARD */
 .mood-card {
     background: white;
-    border: 1px solid var(--border-purple);
-    border-radius: 15px;
-    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
 }
 
 .mood-card h3 {
-    text-align: center;
-    margin-bottom: 15px;
-    font-weight: 400;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #333;
 }
 
 .mood-icons {
@@ -162,67 +155,132 @@ body {
 }
 
 .mood-img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
     cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .mood-img:hover {
     transform: scale(1.1);
-    transition: 0.2s ease;
 }
 
-/* TASKS */
+/* PRIORITY TASK ITEMS */
 .task-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .task-item {
     display: flex;
+    justify-content: space-between; /* Spreads text left, checkbox right */
     align-items: center;
     background: var(--task-bg);
-    color: white;
-    padding: 18px 25px;
-    border-radius: 14px;
+    padding: 20px 25px;
+    border-radius: 18px;
 }
 
 .task-input {
     border: none;
     background: transparent;
-    color: white;
-    width: 100%;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    width: 80%;
     outline: none;
 }
 
 .task-checkbox {
-    margin-left: auto;
-    width: 25px;
-    height: 25px;
-    border: 2px solid white;
+    width: 28px;
+    height: 28px;
+    border: 2px solid black;
+    border-radius: 4px;
     appearance: none;
+    cursor: pointer;
+    background: transparent;
 }
 
 .task-checkbox:checked {
-    background: white;
+    background: #4a4a4a; /* Fills dark when checked */
 }
 
-/* FOOTER */
+/* 7. FOOTER */
 .footer {
-    background: var(--footer-bg);
-    color: white;
-    padding: 60px;
-    margin-top: 40px;
+    background-color: #5a4463;
+    color: #eee;
+    padding: 60px 80px;
 }
 
 .footer-container {
     display: flex;
-    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.footer-column h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-column p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #d6cdd8;
+}
+
+.footer-column ul {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.footer-column li {
+    margin-bottom: 15px;
+    color: #d6cdd8;
 }
 
 .footer-photo {
     width: 100%;
-    border-radius: 8px;
+    max-width: 450px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.footer-contact {
+    margin-top: 25px;
+}
+
+.footer-contact p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.footer::after {
+    content: "";
+    display: block;
+    margin-top: 40px;
+    height: 1px;
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* 8. SCROLLBAR CUSTOMIZATION */
+.schedule-box::-webkit-scrollbar {
+    width: 10px;
+}
+
+.schedule-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.schedule-box::-webkit-scrollbar-thumb {
+    background: #bfabc6;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
 }
