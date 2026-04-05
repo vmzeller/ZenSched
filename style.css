@@ -62,7 +62,7 @@ body {
 .schedule-column h2,
 .tasks-column h2 {
     margin-top: 0;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-size: 28px;
     font-weight: 300;
     letter-spacing:.5px;
@@ -113,7 +113,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
 .mood-card {
@@ -122,10 +122,11 @@ body {
     border-radius: 20px;
     padding: 30px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .mood-card h3 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: 500;
     font-size: 18px;
     color: #333;
@@ -191,7 +192,6 @@ body {
 
 .task-checkbox:checked {
     background: #4a4a4a; 
-}
 }
 .footer {
     background-color: #5a4463;
