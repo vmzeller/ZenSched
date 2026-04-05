@@ -192,6 +192,7 @@ body {
 .task-checkbox:checked {
     background: #4a4a4a; 
 }
+}
 .footer {
     background-color: #5a4463;
     color: #eee;
