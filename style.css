@@ -154,8 +154,6 @@ body {
 .mood-img:hover {
     transform: scale(1.1);
 }
-
-/* PRIORITY TASK ITEMS */
 .task-list {
     display: flex;
     flex-direction: column;
@@ -164,7 +162,7 @@ body {
 
 .task-item {
     display: flex;
-    justify-content: space-between; /* Spreads text left, checkbox right */
+    justify-content: space-between;
     align-items: center;
     background: var(--task-bg);
     padding: 20px 25px;
@@ -192,10 +190,8 @@ body {
 }
 
 .task-checkbox:checked {
-    background: #4a4a4a; /* Fills dark when checked */
+    background: #4a4a4a; 
 }
-
-/* 7. FOOTER */
 .footer {
     background-color: #5a4463;
     color: #eee;
