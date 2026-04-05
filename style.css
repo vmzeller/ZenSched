@@ -1,4 +1,3 @@
-/* 1. GLOBAL RESET & BASE STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -19,8 +18,6 @@
 body {
     background-color: var(--primary-bg);
 }
-
-/* 2. NAVIGATION BAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -51,8 +48,6 @@ body {
 .nav-links a.active {
     border-bottom: 3px solid white;
 }
-
-/* 3. MAIN PAGE LAYOUT */
 .page-wrapper {
     background: #f8f6fb;
     margin: 30px;
@@ -64,22 +59,18 @@ body {
     display: flex;
     gap: 60px;
 }
-
-/* 4. HEADERS (BOLD STYLE FROM SCREENSHOT) */
 .schedule-column h2,
 .tasks-column h2 {
     margin-top: 0;
     margin-bottom: 25px;
     font-size: 28px;
-    font-weight: 300; /* Extra bold for the screenshot look */
+    font-weight: 300;
     letter-spacing:.5px;
     color: #333;
 }
-
-/* 5. SCHEDULE COLUMN (LEFT) */
 .schedule-column {
     flex: 1.5;
-    border-right: 6px solid var(--border-purple); /* Thick divider */
+    border-right: 6px solid var(--border-purple);
     padding-right: 40px;
 }
 
@@ -118,7 +109,6 @@ body {
     font-size: 14px;
 }
 
-/* 6. TASKS COLUMN (RIGHT) */
 .tasks-column {
     flex: 1;
     display: flex;
@@ -126,7 +116,6 @@ body {
     gap: 30px;
 }
 
-/* MOOD CARD */
 .mood-card {
     background: white;
     border: 1px solid #ccc;
@@ -269,8 +258,6 @@ body {
     height: 1px;
     background-color: rgba(255,255,255,0.3);
 }
-
-/* 8. SCROLLBAR CUSTOMIZATION */
 .schedule-box::-webkit-scrollbar {
     width: 10px;
 }
