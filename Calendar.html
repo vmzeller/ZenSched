@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenSched Calendar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CalendarStyle.css">
+</head>
+
+<body>
+<header class="navbar">
+    <div class="Logo">
+        <img src="Images/Logo.png" alt="ZenSched Logo" class="Logo-img">
+    </div>
+    <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="Calendar.html" class="active" aria-current="page">Calendar</a>
+        <a href="stress.html">Stress Tools</a>
+        <a href="#">Settings</a>
+    </nav>
+    <div class="nav-spacer"></div>
+</header>
+
+<div class="page-wrapper">
+    <main class="calendar-container">
+        <header class="calendar-header">
+            <h1 id="month-display">MARCH 2026</h1>
+        </header>
+
+        <div class="calendar-grid" id="calendar-grid">
+            </div>
+    </main>
+</div>
+
+<div id="day-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modal-date-display">Edit Day</h2>
+        
+        <label>How are you feeling?</label>
+        <div class="mood-selector">
+            <img src="Images/Great.png" class="mood-opt" data-mood="Images/Great.png" alt="Great">
+            <img src="Images/Ok.png" class="mood-opt" data-mood="Images/Ok.png" alt="Ok">
+            <img src="Images/Sad.png" class="mood-opt" data-mood="Images/Sad.png" alt="Sad">
+            <img src="Images/Angry.png" class="mood-opt" data-mood="Images/Angry.png" alt="Angry">
+        </div>
+
+        <label>Main Task</label>
+        <input type="text" id="task-input" placeholder="e.g. Finish Project">
+
+        <label>Importance (Dot Color)</label>
+        <select id="importance-input">
+            <option value="not-urgent">Not Urgent (Green)</option>
+            <option value="in-progress">In Progress (Orange)</option>
+            <option value="urgent">Urgent (Red)</option>
+            <option value="gray">Default (Gray)</option>
+        </select>
+
+        <button id="save-day-btn">Save Changes</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h2>About Us</h2>
+            <p>At ZenSched, we balance productivity with mental well-being using calming design principles.</p>
+        </div>
+        <div class="footer-column">
+            <img src="Images/footer.png" alt="Zen Illustration" class="footer-photo">
+        </div>
+    </div>
+</footer>
+
+<script>
+    const calendarGrid = document.getElementById('calendar-grid');
+    const monthDisplay = document.getElementById('month-display');
+    const modal = document.getElementById('day-modal');
+    const closeBtn = document.querySelector('.close-btn');
+    let selectedDayBox = null;
+    let selectedMoodPath = "Images/Ok.png";
+
+    function initCalendar() {
+        const now = new Date();
+        const month = now.getMonth();
+        const year = now.getFullYear();
+        const today = now.getDate();
+        const monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
+
+        monthDisplay.innerText = `${monthNames[month]} ${year}`;
+        calendarGrid.innerHTML = '';
+
+        const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+        days.forEach(d => calendarGrid.innerHTML += `<div class="day-name">${d}</div>`);
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        for (let i = 0; i < firstDay; i++) {
+            calendarGrid.innerHTML += `<div class="calendar-day empty"></div>`;
+        }
+
+        for (let i = 1; i <= daysInMonth; i++) {
+            const activeClass = (i === today) ? 'active-day' : '';
+            calendarGrid.innerHTML += `
+                <div class="calendar-day ${activeClass}" onclick="openModal(this, ${i})">
+                    <img src="Images/Ok.png" alt="Mood" class="mini-mood">
+                    <span class="day-number">${i}</span>
+                    <div class="day-status-area">
+                        <span class="task-snippet">No Task</span>
+                        <div class="day-dot gray"></div>
+                    </div>
+                </div>`;
+        }
+    }
+
+    function openModal(element, day) {
+        selectedDayBox = element;
+        document.getElementById('modal-date-display').innerText = `Day ${day}`;
+        modal.style.display = 'flex';
+    }
+
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (event) => { if (event.target == modal) modal.style.display = 'none'; }
+
+    document.querySelectorAll('.mood-opt').forEach(img => {
+        img.onclick = function() {
+            document.querySelectorAll('.mood-opt').forEach(i => i.style.border = "none");
+            this.style.border = "2px solid #72577c";
+            this.style.borderRadius = "50%";
+            selectedMoodPath = this.getAttribute('data-mood');
+        };
+    });
+
+    document.getElementById('save-day-btn').onclick = function() {
+        const taskValue = document.getElementById('task-input').value;
+        const importance = document.getElementById('importance-input').value;
+        
+        selectedDayBox.querySelector('.task-snippet').innerText = taskValue || "No Task";
+        selectedDayBox.querySelector('.day-dot').className = `day-dot ${importance}`;
+        selectedDayBox.querySelector('.mini-mood').src = selectedMoodPath;
+        
+        modal.style.display = 'none';
+        document.getElementById('task-input').value = ''; 
+    };
+
+    initCalendar();
+</script>
+</body>
+</html>

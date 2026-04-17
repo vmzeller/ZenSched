@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenSched - Stress Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="StressStyle.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="Logo">
+        <img src="Images/Logo.png" alt="ZenSched Logo" class="Logo-img">
+    </div>
+
+    <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="Calendar.html">Calendar</a>
+        <a href="stress.html" class="active" aria-current="page">Stress Tools</a>
+        <a href="#">Settings</a>
+    </nav>
+    <div class="nav-spacer"></div>
+</header>
+
+<div class="page-wrapper">
+    <h1 class="main-title">Wellness Toolbox</h1>
+    
+    <main class="stress-grid">
+        <section class="breathing-section">
+            <div class="breath-circle-outer">
+                <div class="breath-circle-inner">
+                    <p>Breathing<br>Exercise</p>
+                </div>
+            </div>
+            <p class="press-start">Press to Start</p>
+        </section>
+
+        <section class="media-section">
+            <div class="music-module">
+                <h3>Calming Spotify Playlists</h3>
+                <div class="playlist-grid">
+                    <a href="https://open.spotify.com/playlist/37i9dQZF1DX8Ueb9C7V6S7" target="_blank" class="music-item">
+                        <img src="Images/Lofi.png" alt="Lofi Beats">
+                        <span>Lofi Beats</span>
+                    </a>
+                    <a href="https://open.spotify.com/playlist/37i9dQZF1DX4Mw9CHvB79S" target="_blank" class="music-item">
+                        <img src="Images/Rain.png" alt="Rain Sounds">
+                        <span>Rain Sounds</span>
+                    </a>
+                    <a href="https://open.spotify.com/playlist/37i9dQZF1DWZeKzbUnEu3Y" target="_blank" class="music-item">
+                        <img src="Images/Calming.png" alt="Deep Focus">
+                        <span>Deep Focus</span>
+                    </a>
+                    <a href="https://open.spotify.com/playlist/37i9dQZF1DWZqd5YICuS9s" target="_blank" class="music-item">
+                        <img src="Images/Ambient.png" alt="Ambient Calm">
+                        <span>Ambient Calm</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="yoga-module">
+                <h3>Yoga Exercise of the Week</h3>
+                <a href="https://www.youtube.com/watch?v=v7AYKMP6rOE" target="_blank" class="video-placeholder">
+                    <div class="play-button"></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="journal-section">
+            <div class="journal-header">
+                <img src="Images/JournalIcon.png" alt="Journal" class="j-icon">
+                <h2>Mindful Journal</h2>
+            </div>
+            <textarea placeholder="Write your thoughts here!"></textarea>
+        </section>
+    </main>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h2>About Us</h2>
+            <p>At ZenSched, we believe that productivity shouldn't come at the cost of your mental well-being. We balance tasks with tranquility.</p>
+        </div>
+        <div class="footer-column">
+            <h2>Latest Information</h2>
+            <ul>
+                <li>Track your mood daily for monthly insights.</li>
+                <li>Check your calendar to manage tasks.</li>
+                <li>Utilize tools to reset your focus.</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <img src="Images/footer.png" alt="Meditation Illustration" class="footer-photo">
+        </div>
+    </div>
+</footer>
+
+<script>
+    const breathCircle = document.querySelector('.breath-circle-outer');
+    let isBreathing = false;
+
+    breathCircle.addEventListener('click', () => {
+        isBreathing = !isBreathing;
+        if (isBreathing) {
+            breathCircle.style.animation = "pulse 4s infinite ease-in-out";
+            document.querySelector('.press-start').innerText = "Focus on your Breath";
+        } else {
+            breathCircle.style.animation = "none";
+            document.querySelector('.press-start').innerText = "Press to Start";
+        }
+    });
+</script>
+
+</body>
+</html>
