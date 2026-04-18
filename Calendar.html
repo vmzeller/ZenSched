@@ -26,11 +26,11 @@
 <div class="page-wrapper">
     <main class="calendar-container">
         <header class="calendar-header">
-            <h1 id="month-display">MARCH 2026</h1>
+            <h1 id="month-display">APRIL 2026</h1>
         </header>
 
         <div class="calendar-grid" id="calendar-grid">
-            </div>
+        </div>
     </main>
 </div>
 
@@ -104,27 +104,36 @@
 
         for (let i = 1; i <= daysInMonth; i++) {
             const activeClass = (i === today) ? 'active-day' : '';
+            const dateKey = `mood-${year}-${month + 1}-${i}`;
+            const taskKey = `task-${year}-${month + 1}-${i}`;
+            const dotKey = `dot-${year}-${month + 1}-${i}`;
+            const savedMood = localStorage.getItem(dateKey);
+            const savedTask = localStorage.getItem(taskKey);
+            const savedDot = localStorage.getItem(dotKey);
+            const displayMood = savedMood ? savedMood : "Images/Ok.png";
+            const displayTask = savedTask ? savedTask : "No Task";
+            const displayDot = savedDot ? savedDot : "gray";
+            const moodStyle = savedMood ? "opacity: 1;" : "opacity: 0.2;";
             calendarGrid.innerHTML += `
                 <div class="calendar-day ${activeClass}" onclick="openModal(this, ${i})">
-                    <img src="Images/Ok.png" alt="Mood" class="mini-mood">
+                    <img src="${displayMood}" alt="Mood" class="mini-mood" style="${moodStyle}">
                     <span class="day-number">${i}</span>
                     <div class="day-status-area">
-                        <span class="task-snippet">No Task</span>
-                        <div class="day-dot gray"></div>
+                        <span class="task-snippet">${displayTask}</span>
+                        <div class="day-dot ${displayDot}"></div>
                     </div>
                 </div>`;
         }
     }
-
     function openModal(element, day) {
         selectedDayBox = element;
+        const currentTask = element.querySelector('.task-snippet').innerText;
+        document.getElementById('task-input').value = currentTask === "No Task" ? "" : currentTask;
         document.getElementById('modal-date-display').innerText = `Day ${day}`;
         modal.style.display = 'flex';
     }
-
     closeBtn.onclick = () => modal.style.display = 'none';
     window.onclick = (event) => { if (event.target == modal) modal.style.display = 'none'; }
-
     document.querySelectorAll('.mood-opt').forEach(img => {
         img.onclick = function() {
             document.querySelectorAll('.mood-opt').forEach(i => i.style.border = "none");
@@ -133,19 +142,26 @@
             selectedMoodPath = this.getAttribute('data-mood');
         };
     });
-
     document.getElementById('save-day-btn').onclick = function() {
-        const taskValue = document.getElementById('task-input').value;
+        const taskValue = document.getElementById('task-input').value || "No Task";
         const importance = document.getElementById('importance-input').value;
+        const dayNumber = selectedDayBox.querySelector('.day-number').innerText;
         
-        selectedDayBox.querySelector('.task-snippet').innerText = taskValue || "No Task";
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+
+        selectedDayBox.querySelector('.task-snippet').innerText = taskValue;
         selectedDayBox.querySelector('.day-dot').className = `day-dot ${importance}`;
         selectedDayBox.querySelector('.mini-mood').src = selectedMoodPath;
-        
+        selectedDayBox.querySelector('.mini-mood').style.opacity = "1";
+        localStorage.setItem(`mood-${year}-${month}-${dayNumber}`, selectedMoodPath);
+        localStorage.setItem(`task-${year}-${month}-${dayNumber}`, taskValue);
+        localStorage.setItem(`dot-${year}-${month}-${dayNumber}`, importance);
+
         modal.style.display = 'none';
         document.getElementById('task-input').value = ''; 
     };
-
     initCalendar();
 </script>
 </body>
