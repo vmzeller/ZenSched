@@ -50,7 +50,6 @@
 .empty { background-color: #fdfdfd; cursor: default; }
 .active-day { background-color: #f2f2f2; }
 
-/* --- INDICATORS --- */
 .mini-mood { position: absolute; top: 10px; left: 10px; width: 24px; height: 24px; }
 .day-status-area {
     position: absolute;
@@ -71,12 +70,10 @@
 }
 
 .day-dot { width: 12px; height: 12px; border-radius: 50%; }
-.day-dot.urgent { background-color: #f94144; }      /* Red */
-.day-dot.in-progress { background-color: #f9844a; } /* Orange */
-.day-dot.not-urgent { background-color: #90be6d; }  /* Green */
-.day-dot.gray { background-color: #cbd5e0; }       /* Gray */
-
-/* --- MODAL STYLES --- */
+.day-dot.urgent { background-color: #f94144; }     
+.day-dot.in-progress { background-color: #f9844a; } 
+.day-dot.not-urgent { background-color: #90be6d; }  
+.day-dot.gray { background-color: #cbd5e0; }       
 .modal {
     display: none;
     position: fixed;

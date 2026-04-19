@@ -98,7 +98,6 @@
 </footer>
 
 <script>
-    // Breathing Logic
     const circle = document.getElementById('breath-circle');
     const breathText = document.getElementById('breath-text');
     let breathInterval;
@@ -117,8 +116,6 @@
             breathText.innerText = "Breathing Exercise";
         }
     };
-
-    // Journal Save Logic
     const journalInput = document.getElementById('journal-input');
     window.onload = () => {
         const saved = localStorage.getItem('zenSchedJournal');
@@ -127,8 +124,6 @@
     journalInput.addEventListener('input', () => {
         localStorage.setItem('zenSchedJournal', journalInput.value);
     });
-
-    // Video Play Logic
     function playVideo() {
         const container = document.getElementById('video-container');
         container.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/v7AYKMP6rOE?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:15px;"></iframe>`;

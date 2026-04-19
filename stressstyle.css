@@ -1,4 +1,4 @@
-/* DASHBOARD TITLES: 30px and Centered */
+
 .schedule-column h2, 
 .journal-header h3, 
 .mood-card h3, 
@@ -15,8 +15,6 @@
     flex-direction: column;
     gap: 35px;
 }
-
-/* OUTER CIRCLE - Locked */
 .breath-circle-outer {
     width: 320px;
     height: 320px;
@@ -28,8 +26,6 @@
     margin: 0 auto;
     cursor: pointer;
 }
-
-/* INNER CIRCLE - Animates */
 .breath-circle-inner {
     width: 220px;
     height: 220px;
@@ -127,8 +123,6 @@
     border-radius: 50px;
     font-size: 20px;
 }
-
-/* --- FOOTER STYLING (MATCHING INDEX.HTML) --- */
 .footer {
     background-color: #5a4463;
     color: #eee;
@@ -147,13 +141,12 @@
     flex: 1;
 }
 
-/* Footer Specific Headings */
 .footer-column h2 {
-    text-align: left; /* Keep footer titles left-aligned */
+    text-align: left; 
     font-size: 32px;
     margin-bottom: 20px;
     font-weight: 600;
-    color: #fff !important; /* Ensure footer text stays white */
+    color: #fff !important; 
 }
 
 .footer-column p {
@@ -196,7 +189,6 @@
     background-color: rgba(255,255,255,0.3);
 }
 
-/* Responsive Fix */
 @media (max-width: 1100px) {
     .dashboard-container { flex-direction: column; }
     .schedule-column { border-right: none; padding-right: 0; }
