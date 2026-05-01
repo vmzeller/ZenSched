@@ -6,8 +6,48 @@
     <title>ZenSched Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loginstyle.css">
+    <style>
+        /* This hides the dashboard until the user logs in */
+        #dashboard-content { display: none; }
+    </style>
 </head>
 <body>
+
+<!-- 1. LOGIN SCREEN SECTION -->
+<div id="login-screen">
+    <div class="login-card">
+        <div class="login-form-container">
+            <h2>Log In</h2>
+            <p class="welcome-text"><span>Welcome!</span> Please enter your details</p>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password">
+                </div>
+                <a href="#" class="forgot-link">forgot password?</a>
+                <button type="submit" class="login-btn">Log in</button>
+            </form>
+            <div class="divider"><span>or continue with</span></div>
+            <div class="social-login">
+                <button class="social-btn" type="button">Google</button>
+                <button class="social-btn" type="button">Apple</button>
+            </div>
+            <p class="signup-text">Don’t have account? <a href="#">Sign up</a></p>
+        </div>
+        <div class="login-branding">
+            <img src="Images/Logo.png" alt="ZenSched Logo" class="main-logo">
+            <h1>Zen<br>Sched</h1>
+        </div>
+    </div>
+</div>
+
+<!-- 2. ORIGINAL DASHBOARD CODE -->
+<div id="dashboard-content">
 <header class="navbar">
     <div class="Logo">
         <img src="Images/Logo.png" alt="ZenSched Logo" class="Logo-img">
@@ -17,6 +57,8 @@
         <a href="Calendar.html">Calendar</a>
         <a href="stress.html">Stress Tools</a>
         <a href="#">Settings</a>
+        <!-- Added a logout option for testing -->
+        <a href="#" onclick="logout()">Logout</a>
     </nav>
     <div class="nav-spacer"></div>
 </header>
@@ -112,7 +154,30 @@
         </div>
     </div>
 </footer>
+</div>
+
 <script>
+    // 1. Check Login State on Load
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('dashboard-content').style.display = 'block';
+    }
+
+    // 2. Handle Login Submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        localStorage.setItem('isLoggedIn', 'true');
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('dashboard-content').style.display = 'block';
+    });
+
+    // 3. Logout function
+    function logout() {
+        localStorage.removeItem('isLoggedIn');
+        location.reload(); 
+    }
+
+    // 4. Mood tracking logic
     function setMood(status, imgPath) {
         const now = new Date();
         const dateKey = `mood-${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
