@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="loginstyle.css">
     <style>
-        /* This hides the dashboard until the user logs in */
         #dashboard-content { display: none; }
     </style>
 </head>
@@ -157,27 +156,20 @@
 </div>
 
 <script>
-    // 1. Check Login State on Load
     if (localStorage.getItem('isLoggedIn') === 'true') {
         document.getElementById('login-screen').style.display = 'none';
         document.getElementById('dashboard-content').style.display = 'block';
     }
-
-    // 2. Handle Login Submission
     document.getElementById('loginForm').addEventListener('submit', function(event) {
         event.preventDefault(); 
         localStorage.setItem('isLoggedIn', 'true');
         document.getElementById('login-screen').style.display = 'none';
         document.getElementById('dashboard-content').style.display = 'block';
     });
-
-    // 3. Logout function
     function logout() {
         localStorage.removeItem('isLoggedIn');
         location.reload(); 
     }
-
-    // 4. Mood tracking logic
     function setMood(status, imgPath) {
         const now = new Date();
         const dateKey = `mood-${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
