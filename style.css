@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-bg: #ffffff; /* FIXED: matches calendar background */
+    --primary-bg: #333; 
     --nav-bg: #72577c;
     --footer-bg: #4e3a56;
     --task-bg: #bfabc8;
@@ -16,7 +16,7 @@
 }
 
 body {
-    background-color: var(--primary-bg);
+    background-color: #ffffff;
 }
 
 .navbar {
@@ -51,7 +51,7 @@ body {
 }
 
 .page-wrapper {
-    background: #f8f6fb;
+    background: #ffffff; /* This was #f8f6fb (light purple) */
     margin: 30px;
     border-radius: 40px;
     padding: 40px;
@@ -198,8 +198,6 @@ body {
 .task-checkbox:checked {
     background: #4a4a4a;
 }
-
-/* FOOTER */
 .footer {
     background-color: #5a4463;
     color: #eee;
