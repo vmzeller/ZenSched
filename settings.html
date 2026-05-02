@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenSched Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="settingsstyle.css">
+    <script src="theme.js" defer></script>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="Logo">
+        <img src="Images/Logo.png" alt="ZenSched Logo" class="Logo-img">
+    </div>
+
+    <nav class="nav-links">
+        <a href="index.html#dashboard">Dashboard</a>
+        <a href="Calendar.html">Calendar</a>
+        <a href="stress.html">Stress Tools</a>
+        <a href="settings.html" class="active">Settings</a>
+    </nav>
+
+    <div class="nav-spacer"></div>
+</header>
+
+<div class="page-wrapper">
+    <main class="settings-container">
+        <h1 class="settings-title">Settings</h1>
+
+        <div class="settings-grid">
+            <section class="settings-card">
+                <h2><span class="settings-icon">●</span>Account Info</h2>
+                <div class="account-layout">
+                    <label class="avatar-control" for="profile-photo">
+                        <span class="avatar-preview" id="avatar-preview" aria-label="Profile avatar preview"></span>
+                        <span class="avatar-action">Change Photo</span>
+                    </label>
+                    <input id="profile-photo" class="profile-photo-input" type="file" accept="image/*">
+                    <div>
+                        <label class="settings-field">
+                            First Name
+                            <input type="text" aria-label="First Name">
+                        </label>
+                        <label class="settings-field">
+                            Last Name
+                            <input type="text" aria-label="Last Name">
+                        </label>
+                        <label class="settings-field">
+                            Email
+                            <input type="email" aria-label="Email">
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings-card">
+                <h2><span class="settings-icon">♦</span>Notifications</h2>
+                <div class="settings-row">
+                    <span>Email Notifications</span>
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+                </div>
+                <div class="settings-row">
+                    <span>Wellness Reminders</span>
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+                </div>
+                <div class="settings-row">
+                    <span>Tool Recommendations</span>
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="settings-card">
+                <h2><span class="settings-icon">◕</span>Appearance &amp; Theme</h2>
+                <p class="settings-row">Color Schemes</p>
+                <div class="theme-swatches" aria-label="Color schemes">
+                    <button class="swatch swatch-purple is-selected" type="button" data-theme="purple" aria-label="Purple color scheme"></button>
+                    <button class="swatch swatch-mint" type="button" data-theme="mint" aria-label="Mint color scheme"></button>
+                </div>
+                <label class="settings-field">
+                    Brightness
+                    <input id="brightness-slider" class="brightness-slider" type="range" min="85" max="115" value="100">
+                </label>
+            </section>
+
+            <section class="settings-card privacy-card">
+                <h2><span class="settings-icon">▣</span>Data &amp; Privacy</h2>
+                <button class="history-button" type="button">View Progress History</button>
+                <div class="settings-row">
+                    <span>Allow Sharing</span>
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+                </div>
+                <div class="settings-row">
+                    <span>Usage Statistics</span>
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+                </div>
+                <button class="logout-button" type="button" onclick="window.location.href='index.html'">Log Out</button>
+            </section>
+        </div>
+    </main>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h2>About Us</h2>
+            <p>
+                At ZenSched, we believe that productivity shouldn't come at the cost of your mental well-being.
+                Our platform is designed using calming design principles to reduce cognitive load and digital anxiety.
+            </p>
+            <div class="footer-contact">
+                <p>XXX-XXX-XXXX</p>
+                <p>ZenSched@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h2>Latest Information</h2>
+            <ul>
+                <li>Record how you are feeling every day to track mood trends.</li>
+                <li>New Breathing Modules: Added to the Wellness Toolbox.</li>
+                <li>Check out your calendar to manage daily tasks!</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <img src="Images/footer.png" alt="Wellness workspace" class="footer-photo">
+        </div>
+    </div>
+</footer>
+
+<script>
+    const themes = {
+        purple: {
+            nav: '#72577c',
+            footer: '#5a4463',
+            task: '#bfabc8',
+            accent: '#72577c',
+            page: '#bfabc8'
+        },
+        mint: {
+            nav: '#5f8679',
+            footer: '#3f6258',
+            task: '#a8d8c6',
+            accent: '#5f8679',
+            page: '#a8d8c6'
+        }
+    };
+
+    const avatarInput = document.getElementById('profile-photo');
+    const avatarPreview = document.getElementById('avatar-preview');
+    const brightnessSlider = document.getElementById('brightness-slider');
+    const swatches = document.querySelectorAll('.swatch');
+
+    function applyTheme(themeName) {
+        const theme = themes[themeName] || themes.purple;
+        document.documentElement.style.setProperty('--nav-bg', theme.nav);
+        document.documentElement.style.setProperty('--footer-bg', theme.footer);
+        document.documentElement.style.setProperty('--task-bg', theme.task);
+        document.documentElement.style.setProperty('--page-border', theme.page);
+        document.documentElement.style.setProperty('--settings-accent', theme.accent);
+
+        swatches.forEach(swatch => {
+            swatch.classList.toggle('is-selected', swatch.dataset.theme === themeName);
+        });
+
+        localStorage.setItem('zenSchedTheme', themeName);
+    }
+
+    function applyBrightness(value) {
+        document.body.style.filter = `brightness(${value}%)`;
+        localStorage.setItem('zenSchedBrightness', value);
+    }
+
+    avatarInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            avatarPreview.style.backgroundImage = `url("${event.target.result}")`;
+            avatarPreview.classList.add('has-photo');
+            localStorage.setItem('zenSchedProfilePhoto', event.target.result);
+        };
+        reader.readAsDataURL(file);
+    });
+
+    swatches.forEach(swatch => {
+        swatch.addEventListener('click', () => applyTheme(swatch.dataset.theme));
+    });
+
+    brightnessSlider.addEventListener('input', () => {
+        applyBrightness(brightnessSlider.value);
+    });
+
+    const savedPhoto = localStorage.getItem('zenSchedProfilePhoto');
+    if (savedPhoto) {
+        avatarPreview.style.backgroundImage = `url("${savedPhoto}")`;
+        avatarPreview.classList.add('has-photo');
+    }
+
+    const savedTheme = localStorage.getItem('zenSchedTheme') || 'purple';
+    const savedBrightness = localStorage.getItem('zenSchedBrightness') || '100';
+
+    brightnessSlider.value = savedBrightness;
+    applyTheme(savedTheme);
+    applyBrightness(savedBrightness);
+</script>
+
+</body>
+</html>
