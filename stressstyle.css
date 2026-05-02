@@ -48,8 +48,6 @@
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.25); }
 }
-
-/* Journal Area */
 .journal-area {
     background: #fff;
     border-radius: 18px;

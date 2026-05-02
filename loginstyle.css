@@ -152,8 +152,6 @@ h2 {
     text-decoration: none;
     font-weight: bold;
 }
-
-/* Branding Section */
 .login-branding {
     flex: 1.2;
     display: flex;
