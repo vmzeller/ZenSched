@@ -11,12 +11,13 @@
     --footer-bg: #4e3a56;
     --task-bg: #bfabc8;
     --border-purple: #eee;
+    --page-border: #d8c3e3;
     --text-dark: #000000;
     --text-light: #ffffff;
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--page-border);
     overflow-y: scroll;
 }
 
@@ -53,8 +54,8 @@ body {
 }
 
 .page-wrapper {
-    background: #ffffff; /* This was #f8f6fb (light purple) */
-    margin: 30px;
+    background: #ffffff;
+    margin: 24px;
     border-radius: 40px;
     padding: 40px;
 }
