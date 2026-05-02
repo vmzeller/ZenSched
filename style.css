@@ -6,11 +6,11 @@
 }
 
 :root {
-    --primary-bg: #ffffff;
+    --primary-bg: #ffffff; /* FIXED: matches calendar background */
     --nav-bg: #72577c;
     --footer-bg: #4e3a56;
     --task-bg: #bfabc8;
-    --border-purple: #bfabc6;
+    --border-purple: #eee;
     --text-dark: #000000;
     --text-light: #ffffff;
 }
