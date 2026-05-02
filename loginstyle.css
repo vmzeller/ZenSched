@@ -1,9 +1,9 @@
 :root {
-    --bg-lavender: #b8a6bc;
+    --bg-lavender: #bfabc8;
     --card-white: #ffffff;
-    --text-dark: #6e5a75;
+    --text-dark: #72577c;
     --text-light: #a090a8;
-    --accent-lavender: #7c6a85;
+    --accent-lavender: #72577c;
     --input-border: #e0e0e0;
 }
 
@@ -21,8 +21,8 @@
 
 .login-card {
     background: var(--card-white);
-    width: 900px;
-    height: 550px;
+    width: min(1200px, calc(100vw - 52px));
+    min-height: min(675px, calc(100vh - 40px));
     border-radius: 40px;
     display: flex;
     overflow: hidden;
@@ -30,8 +30,8 @@
 }
 
 .login-form-container {
-    flex: 1;
-    padding: 60px;
+    flex: 0 0 42%;
+    padding: 40px 64px 38px;
     display: flex;
     flex-direction: column;
 }
@@ -40,12 +40,14 @@ h2 {
     color: var(--text-dark);
     margin-bottom: 5px;
     font-size: 2rem;
+    text-align: center;
 }
 
 .welcome-text {
     color: var(--text-light);
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 .welcome-text span {
@@ -54,7 +56,7 @@ h2 {
 }
 
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 22px;
 }
 
 .input-group label {
@@ -67,6 +69,7 @@ h2 {
 
 .input-group input {
     width: 100%;
+    height: 44px;
     padding: 12px;
     border: 1px solid var(--input-border);
     border-radius: 10px;
@@ -85,7 +88,7 @@ h2 {
 
 .login-btn {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     background-color: var(--accent-lavender);
     color: white;
     border: none;
@@ -103,7 +106,7 @@ h2 {
 .divider {
     text-align: center;
     position: relative;
-    margin: 25px 0;
+    margin: 34px 0;
 }
 
 .divider::before {
@@ -128,12 +131,13 @@ h2 {
 
 .social-login {
     display: flex;
-    gap: 15px;
-    margin-bottom: 40px;
+    gap: 24px;
+    margin-bottom: 0;
 }
 
 .social-btn {
     flex: 1;
+    height: 52px;
     padding: 12px;
     border: 1px solid var(--input-border);
     background: white;
@@ -146,6 +150,7 @@ h2 {
     text-align: center;
     font-size: 0.9rem;
     color: #333;
+    margin-top: auto;
 }
 
 .signup-text a {
@@ -154,22 +159,24 @@ h2 {
     font-weight: bold;
 }
 .login-branding {
-    flex: 1.2;
+    flex: 1;
+    min-width: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    padding-right: 40px;
+    gap: 16px;
+    padding: 20px 44px 20px 0;
 }
 
 .main-logo {
-    width: 230px;
+    flex-shrink: 0;
+    width: min(340px, 28vw);
     height: auto;
 }
 
 .login-branding h1 {
     color: var(--text-dark);
-    font-size: 5rem;
+    font-size: clamp(4.5rem, 6.8vw, 8rem);
     line-height: 0.9;
     margin: 0;
 }
