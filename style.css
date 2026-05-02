@@ -18,6 +18,7 @@
 body {
     background-color: var(--primary-bg);
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -29,7 +30,7 @@ body {
 }
 
 .Logo-img {
-    height:60px;
+    height: 60px;
     width: auto;
 }
 
@@ -48,6 +49,7 @@ body {
 .nav-links a.active {
     border-bottom: 3px solid white;
 }
+
 .page-wrapper {
     background: #f8f6fb;
     margin: 30px;
@@ -59,15 +61,17 @@ body {
     display: flex;
     gap: 60px;
 }
+
 .schedule-column h2,
 .tasks-column h2 {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 28px;
     font-weight: 300;
-    letter-spacing:.5px;
+    letter-spacing: .5px;
     color: #333;
 }
+
 .schedule-column {
     flex: 1.5;
     border-right: 6px solid var(--border-purple);
@@ -155,6 +159,7 @@ body {
 .mood-img:hover {
     transform: scale(1.1);
 }
+
 .task-list {
     display: flex;
     flex-direction: column;
@@ -191,12 +196,15 @@ body {
 }
 
 .task-checkbox:checked {
-    background: #4a4a4a; 
+    background: #4a4a4a;
 }
+
+/* FOOTER */
 .footer {
     background-color: #5a4463;
     color: #eee;
     padding: 60px 80px;
+    margin-top: 50px;
 }
 
 .footer-container {
@@ -211,9 +219,11 @@ body {
 }
 
 .footer-column h2 {
+    text-align: left;
     font-size: 32px;
     margin-bottom: 20px;
     font-weight: 600;
+    color: #fff !important;
 }
 
 .footer-column p {
@@ -255,6 +265,7 @@ body {
     height: 1px;
     background-color: rgba(255,255,255,0.3);
 }
+
 .schedule-box::-webkit-scrollbar {
     width: 10px;
 }

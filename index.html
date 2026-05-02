@@ -181,7 +181,7 @@
 
 </div>
 <script>
-  if (localStorage.getItem('isLoggedIn') === 'true') {
+  if (localStorage.getItem('isLoggedIn') ,'true') {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('dashboard-content').style.display = 'block';
   }
@@ -192,11 +192,6 @@
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('dashboard-content').style.display = 'block';
   });
-
-  function logout() {
-    localStorage.removeItem('isLoggedIn');
-    location.reload();
-  }
 
   function setMood(status, imgPath) {
     const now = new Date();
