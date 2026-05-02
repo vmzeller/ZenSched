@@ -13,13 +13,13 @@
 
 <header class="navbar">
     <div class="Logo">
-        <img src="Images/Logo.png" class="Logo-img">
+        <img src="Images/Logo.png" alt="ZenSched Logo" class="Logo-img">
     </div>
 
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Main Navigation">
         <a href="index.html#dashboard">Dashboard</a>
         <a href="Calendar.html">Calendar</a>
-        <a href="stress.html" class="active">Stress Tools</a>
+        <a href="stress.html" class="active" aria-current="page">Stress Tools</a>
         <a href="settings.html">Settings</a>
     </nav>
 
@@ -30,22 +30,24 @@
 
 <div class="page-wrapper">
 <main class="dashboard-container">
+<h1 class="sr-only">ZenSched Stress Tools</h1>
 <section class="schedule-column">
     <h2>Wellness Toolbox</h2>
 
     <div class="wellness-content">
         <div class="breathing-display">
-            <div id="breath-circle" class="breath-circle-outer">
+            <button id="breath-circle" class="breath-circle-outer" type="button" aria-label="Start or stop breathing exercise">
                 <div class="breath-circle-inner">
                     <span id="breath-text">Breathing Exercise</span>
                 </div>
-            </div>
+            </button>
         </div>
         <div class="journal-area">
             <div class="journal-header">
-                <img src="Images/Book-8.png" class="j-icon">
+                <img src="Images/Book-8.png" alt="" class="j-icon">
                 <h3>Mindful Journal</h3>
             </div>
+            <label for="journal-input" class="sr-only">Mindful journal entry</label>
             <textarea id="journal-input" placeholder="Start writing here..."></textarea>
         </div>
     </div>
@@ -55,20 +57,20 @@
     <div class="mood-card">
         <h3>Calming Playlists</h3>
         <div class="playlist-container">
-            <iframe src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM"></iframe>
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY"></iframe>
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO"></iframe>
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX889U0CL85jj"></iframe>
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZd79rJ6a7lp"></iframe>
+            <iframe title="Calming playlist 1" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM"></iframe>
+            <iframe title="Calming playlist 2" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY"></iframe>
+            <iframe title="Calming playlist 3" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO"></iframe>
+            <iframe title="Calming playlist 4" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX889U0CL85jj"></iframe>
+            <iframe title="Calming playlist 5" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZd79rJ6a7lp"></iframe>
         </div>
     </div>
 
     <div class="priority-card">
         <h3>Yoga of the Week</h3>
-        <div class="video-wrapper" id="video-container" onclick="playVideo()">
-            <img class="video-thumb" src="https://img.youtube.com/vi/v7AYKMP6rOE/maxresdefault.jpg">
-            <div class="play-button">▶</div>
-        </div>
+        <button class="video-wrapper" id="video-container" type="button" onclick="playVideo()" aria-label="Play yoga video">
+            <img class="video-thumb" src="https://img.youtube.com/vi/v7AYKMP6rOE/maxresdefault.jpg" alt="Yoga video preview">
+            <span class="play-button" aria-hidden="true">▶</span>
+        </button>
     </div>
 </section>
 </main>
@@ -95,7 +97,7 @@
             </ul>
         </div>
         <div class="footer-column">
-            <img src="Images/Asset 8-8.png" alt="Asset 8-8" class="footer-photo">
+            <img src="Images/Asset 8-8.png" alt="Person stretching in a calm wellness space" class="footer-photo">
         </div>
     </div>
 </footer>
@@ -129,7 +131,7 @@
     });
     function playVideo() {
         const container = document.getElementById('video-container');
-        container.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/v7AYKMP6rOE?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:15px;"></iframe>`;
+        container.innerHTML = `<iframe title="Yoga of the Week video" width="100%" height="100%" src="https://www.youtube.com/embed/v7AYKMP6rOE?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:15px;"></iframe>`;
     }
 </script>
 

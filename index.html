@@ -65,8 +65,8 @@
       <img src="Images/Logo.png" alt="ZenSched Logo" class="Logo-img">
     </div>
 
-    <nav class="nav-links">
-      <a href="index.html#dashboard" class="active">Dashboard</a>
+    <nav class="nav-links" aria-label="Main Navigation">
+      <a href="index.html#dashboard" class="active" aria-current="page">Dashboard</a>
       <a href="Calendar.html">Calendar</a>
       <a href="stress.html">Stress Tools</a>
       <a href="settings.html">Settings</a>
@@ -79,26 +79,27 @@
 
   <div class="page-wrapper">
     <main class="dashboard-container">
+      <h1 class="sr-only">ZenSched Dashboard</h1>
 
-      <section class="schedule-column">
-        <h2>Schedule Today</h2>
+      <section class="schedule-column" aria-labelledby="schedule-heading">
+        <h2 id="schedule-heading">Schedule Today</h2>
 
         <div class="schedule-box">
-          <div class="hour-row"><span class="time">6 AM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">7 AM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">8 AM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">9 AM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">10 AM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">11 AM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">12 PM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">1 PM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">2 PM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">3 PM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">4 PM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">5 PM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">6 PM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">7 PM</span><input type="text" placeholder="Add task..."></div>
-          <div class="hour-row"><span class="time">8 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-6am" class="time">6 AM</label><input type="text" id="task-6am" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-7am" class="time">7 AM</label><input type="text" id="task-7am" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-8am" class="time">8 AM</label><input type="text" id="task-8am" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-9am" class="time">9 AM</label><input type="text" id="task-9am" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-10am" class="time">10 AM</label><input type="text" id="task-10am" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-11am" class="time">11 AM</label><input type="text" id="task-11am" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-12pm" class="time">12 PM</label><input type="text" id="task-12pm" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-1pm" class="time">1 PM</label><input type="text" id="task-1pm" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-2pm" class="time">2 PM</label><input type="text" id="task-2pm" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-3pm" class="time">3 PM</label><input type="text" id="task-3pm" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-4pm" class="time">4 PM</label><input type="text" id="task-4pm" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-5pm" class="time">5 PM</label><input type="text" id="task-5pm" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-6pm" class="time">6 PM</label><input type="text" id="task-6pm" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-7pm" class="time">7 PM</label><input type="text" id="task-7pm" placeholder="Add task..."></div>
+          <div class="hour-row"><label for="task-8pm" class="time">8 PM</label><input type="text" id="task-8pm" placeholder="Add task..."></div>
         </div>
       </section>
 
@@ -108,25 +109,25 @@
           <h3>How are you feeling today?</h3>
 
           <div class="mood-icons">
-            <div class="mood-option" onclick="setMood('Great', 'Images/Great.png')">
-              <img src="Images/Great.png" class="mood-img">
+            <button class="mood-option" type="button" onclick="setMood('Great', 'Images/Great.png')" aria-label="Record mood as Great">
+              <img src="Images/Great.png" class="mood-img" alt="">
               <span>Great</span>
-            </div>
+            </button>
 
-            <div class="mood-option" onclick="setMood('Ok', 'Images/Ok.png')">
-              <img src="Images/Ok.png" class="mood-img">
+            <button class="mood-option" type="button" onclick="setMood('Ok', 'Images/Ok.png')" aria-label="Record mood as Ok">
+              <img src="Images/Ok.png" class="mood-img" alt="">
               <span>Ok</span>
-            </div>
+            </button>
 
-            <div class="mood-option" onclick="setMood('Sad', 'Images/Sad.png')">
-              <img src="Images/Sad.png" class="mood-img">
+            <button class="mood-option" type="button" onclick="setMood('Sad', 'Images/Sad.png')" aria-label="Record mood as Sad">
+              <img src="Images/Sad.png" class="mood-img" alt="">
               <span>Sad</span>
-            </div>
+            </button>
 
-            <div class="mood-option" onclick="setMood('Angry', 'Images/Angry.png')">
-              <img src="Images/Angry.png" class="mood-img">
+            <button class="mood-option" type="button" onclick="setMood('Angry', 'Images/Angry.png')" aria-label="Record mood as Angry">
+              <img src="Images/Angry.png" class="mood-img" alt="">
               <span>Angry</span>
-            </div>
+            </button>
           </div>
         </div>
 
@@ -135,18 +136,18 @@
 
           <div class="task-list">
             <label class="task-item">
-              <input type="text" class="task-input" value="Finish Homework">
-              <input type="checkbox">
+              <input type="text" class="task-input" value="Finish Homework" aria-label="Priority task 1">
+              <input type="checkbox" aria-label="Mark Finish Homework complete">
             </label>
 
             <label class="task-item">
-              <input type="text" class="task-input" value="Do Laundry">
-              <input type="checkbox">
+              <input type="text" class="task-input" value="Do Laundry" aria-label="Priority task 2">
+              <input type="checkbox" aria-label="Mark Do Laundry complete">
             </label>
 
             <label class="task-item">
-              <input type="text" class="task-input" value="Meditate">
-              <input type="checkbox">
+              <input type="text" class="task-input" value="Meditate" aria-label="Priority task 3">
+              <input type="checkbox" aria-label="Mark Meditate complete">
             </label>
           </div>
         </div>
@@ -181,7 +182,7 @@
       </div>
 
       <div class="footer-column">
-        <img src="Images/footer.png" class="footer-photo">
+        <img src="Images/footer.png" alt="Person relaxing with a laptop and plants" class="footer-photo">
       </div>
 
     </div>

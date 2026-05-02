@@ -37,28 +37,28 @@
     </main>
 </div>
 
-<div id="day-modal" class="modal">
+<div id="day-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-date-display">
     <div class="modal-content">
-        <span class="close-btn">&times;</span>
+        <button class="close-btn" type="button" aria-label="Close day editor">&times;</button>
         <h2 id="modal-date-display">Edit Day</h2>
         
-        <label>How are you feeling?</label>
-        <div class="mood-selector">
-            <img src="Images/Great.png" class="mood-opt" data-mood="Images/Great.png" alt="Great">
-            <img src="Images/Ok.png" class="mood-opt" data-mood="Images/Ok.png" alt="Ok">
-            <img src="Images/Sad.png" class="mood-opt" data-mood="Images/Sad.png" alt="Sad">
-            <img src="Images/Angry.png" class="mood-opt" data-mood="Images/Angry.png" alt="Angry">
+        <p id="mood-label">How are you feeling?</p>
+        <div class="mood-selector" role="group" aria-labelledby="mood-label">
+            <button class="mood-opt" type="button" data-mood="Images/Great.png" aria-label="Select Great mood"><img src="Images/Great.png" alt=""></button>
+            <button class="mood-opt" type="button" data-mood="Images/Ok.png" aria-label="Select Ok mood"><img src="Images/Ok.png" alt=""></button>
+            <button class="mood-opt" type="button" data-mood="Images/Sad.png" aria-label="Select Sad mood"><img src="Images/Sad.png" alt=""></button>
+            <button class="mood-opt" type="button" data-mood="Images/Angry.png" aria-label="Select Angry mood"><img src="Images/Angry.png" alt=""></button>
         </div>
 
-        <label>Main Task</label>
+        <label for="task-input">Main Task</label>
         <input type="text" id="task-input" placeholder="e.g. Finish Project">
 
-        <label>Importance (Dot Color)</label>
+        <label for="importance-input">Importance</label>
         <select id="importance-input">
-            <option value="not-urgent">Not Urgent (Green)</option>
-            <option value="in-progress">In Progress (Orange)</option>
-            <option value="urgent">Urgent (Red)</option>
-            <option value="gray">Default (Gray)</option>
+            <option value="not-urgent">Not Urgent</option>
+            <option value="in-progress">In Progress</option>
+            <option value="urgent">Urgent</option>
+            <option value="gray">Default</option>
         </select>
 
         <button id="save-day-btn">Save Changes</button>
@@ -86,10 +86,11 @@
                 <li>Check out your calendar to manage daily tasks!</li>
             </ul>
         </div>
-                <div class="footer-column">
-            <img src="Images/Asset 9-8.png" alt="Asset 9-8" class="footer-photo">
+        <div class="footer-column">
+            <img src="Images/Asset 9-8.png" alt="ZenSched wellness illustration" class="footer-photo">
         </div>
     </div>
+</footer>
 <script>
     const calendarGrid = document.getElementById('calendar-grid');
     const monthDisplay = document.getElementById('month-display');
@@ -131,14 +132,14 @@
             const displayDot = savedDot ? savedDot : "gray";
             const moodStyle = savedMood ? "opacity: 1;" : "opacity: 0.2;";
             calendarGrid.innerHTML += `
-                <div class="calendar-day ${activeClass}" onclick="openModal(this, ${i})">
-                    <img src="${displayMood}" alt="Mood" class="mini-mood" style="${moodStyle}">
+                <button class="calendar-day ${activeClass}" type="button" onclick="openModal(this, ${i})" aria-label="Edit day ${i}, ${displayTask}, ${displayDot.replace('-', ' ')}">
+                    <img src="${displayMood}" alt="" class="mini-mood" style="${moodStyle}">
                     <span class="day-number">${i}</span>
                     <div class="day-status-area">
                         <span class="task-snippet">${displayTask}</span>
-                        <div class="day-dot ${displayDot}"></div>
+                        <span class="day-dot ${displayDot}" aria-hidden="true"></span>
                     </div>
-                </div>`;
+                </button>`;
         }
     }
     function openModal(element, day) {
