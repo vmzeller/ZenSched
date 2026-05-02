@@ -17,6 +17,7 @@
 
 body {
     background-color: #ffffff;
+    overflow-y: scroll;
 }
 
 .navbar {
@@ -27,6 +28,7 @@ body {
     color: white;
     height: 80px;
     padding: 0 4%;
+    width: 100%;
 }
 
 .Logo-img {

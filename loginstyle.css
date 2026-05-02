@@ -7,7 +7,8 @@
     --input-border: #e0e0e0;
 }
 
-body {
+.login-page,
+#login-screen {
     margin: 0;
     padding: 0;
     display: flex;
