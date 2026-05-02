@@ -193,7 +193,11 @@
     document.getElementById('dashboard-content').style.display = 'block';
   }
 
-  if (window.location.hash === '#dashboard') {
+  const cameFromAppPage =
+    document.referrer.endsWith('/Calendar.html') ||
+    document.referrer.endsWith('/stress.html');
+
+  if (window.location.hash === '#dashboard' || cameFromAppPage) {
     showDashboard();
   }
 
