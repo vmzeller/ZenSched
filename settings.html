@@ -23,7 +23,9 @@
         <a href="settings.html" class="active">Settings</a>
     </nav>
 
-    <div class="nav-spacer"></div>
+    <a class="nav-profile" href="settings.html" aria-label="Open profile settings">
+        <span class="nav-profile-avatar" aria-hidden="true"></span>
+    </a>
 </header>
 
 <div class="page-wrapper">
@@ -195,6 +197,9 @@
         reader.onload = function(event) {
             avatarPreview.style.backgroundImage = `url("${event.target.result}")`;
             avatarPreview.classList.add('has-photo');
+            document.querySelectorAll('.nav-profile-avatar').forEach(avatar => {
+                avatar.style.backgroundImage = `url("${event.target.result}")`;
+            });
             localStorage.setItem('zenSchedProfilePhoto', event.target.result);
         };
         reader.readAsDataURL(file);

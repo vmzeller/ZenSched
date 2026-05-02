@@ -1,4 +1,4 @@
-sconst zenSchedThemes = {
+const zenSchedThemes = {
     purple: {
         nav: '#72577c',
         footer: '#5a4463',
@@ -35,12 +35,23 @@ function loadZenSchedAppearance() {
 
     applyZenSchedTheme(savedTheme);
     applyZenSchedBrightness(savedBrightness);
+    loadZenSchedProfilePhoto();
+}
+
+function loadZenSchedProfilePhoto() {
+    const savedPhoto = localStorage.getItem('zenSchedProfilePhoto');
+    if (!savedPhoto) return;
+
+    document.querySelectorAll('.nav-profile-avatar').forEach(avatar => {
+        avatar.style.backgroundImage = `url("${savedPhoto}")`;
+    });
 }
 
 window.ZenSchedAppearance = {
     themes: zenSchedThemes,
     applyTheme: applyZenSchedTheme,
     applyBrightness: applyZenSchedBrightness,
+    loadProfilePhoto: loadZenSchedProfilePhoto,
     load: loadZenSchedAppearance
 };
 
