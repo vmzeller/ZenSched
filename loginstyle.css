@@ -164,20 +164,13 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
     padding: 20px 44px 20px 0;
 }
 
-.main-logo {
-    flex-shrink: 0;
-    width: min(340px, 28vw);
+.main-logo-full {
+    width: min(650px, 50vw);
+    max-height: 430px;
     height: auto;
-}
-
-.login-branding h1 {
-    color: var(--text-dark);
-    font-size: clamp(4.5rem, 6.8vw, 8rem);
-    line-height: 0.9;
-    margin: 0;
+    object-fit: contain;
 }
 .footer h2 { color: white !important; }
