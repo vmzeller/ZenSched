@@ -1,181 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZenSched Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="loginstyle.css">
-    <style>
-        #dashboard-content { display: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZenSched Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loginstyle.css">
+
+  <style>
+    #dashboard-content {
+      display: none;
+    }
+  </style>
 </head>
+
 <body>
 
 <!-- 1. LOGIN SCREEN SECTION -->
 <div id="login-screen">
-    <div class="login-card">
-        <div class="login-form-container">
-            <h2>Log In</h2>
-            <p class="welcome-text"><span>Welcome!</span> Please enter your details</p>
-            <form id="loginForm">
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email">
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password">
-                </div>
-                <a href="#" class="forgot-link">forgot password?</a>
-                <button type="submit" class="login-btn">Log in</button>
-            </form>
-            <div class="divider"><span>or continue with</span></div>
-            <div class="social-login">
-                <button class="social-btn" type="button">Google</button>
-                <button class="social-btn" type="button">Apple</button>
-            </div>
-            <p class="signup-text">Don’t have account? <a href="#">Sign up</a></p>
+  <div class="login-card">
+
+    <div class="login-form-container">
+      <h2>Log In</h2>
+      <p class="welcome-text"><span>Welcome!</span> Please enter your details</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
         </div>
-        <div class="login-branding">
-            <img src="Images/Logo.png" alt="ZenSched Logo" class="main-logo">
-            <h1>Zen<br>Sched</h1>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
         </div>
+
+        <a href="#" class="forgot-link">forgot password?</a>
+        <button type="submit" class="login-btn">Log in</button>
+      </form>
+
+      <div class="divider"><span>or continue with</span></div>
+
+      <div class="social-login">
+        <button class="social-btn" type="button">Google</button>
+        <button class="social-btn" type="button">Apple</button>
+      </div>
+
+      <p class="signup-text">Don’t have account? <a href="#">Sign up</a></p>
     </div>
+
+    <div class="login-branding">
+      <img src="Images/Logo.png" alt="ZenSched Logo" class="main-logo">
+      <h1>Zen<br>Sched</h1>
+    </div>
+
+  </div>
 </div>
 
-<!-- 2. ORIGINAL DASHBOARD CODE -->
+<!-- 2. DASHBOARD -->
 <div id="dashboard-content">
-<header class="navbar">
+
+  <header class="navbar">
     <div class="Logo">
-        <img src="Images/Logo.png" alt="ZenSched Logo" class="Logo-img">
+      <img src="Images/Logo.png" alt="ZenSched Logo" class="Logo-img">
     </div>
-    <nav class="nav-links" aria-label="Main Navigation">
-        <a href="index.html" class="active" aria-current="page">Dashboard</a>
-        <a href="Calendar.html">Calendar</a>
-        <a href="stress.html">Stress Tools</a>
-        <a href="#">Settings</a>
-        <!-- Added a logout option for testing -->
-        <a href="#" onclick="logout()">Logout</a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="Calendar.html">Calendar</a>
+      <a href="stress.html">Stress Tools</a>
+      <a href="#">Settings</a>
+      <a href="#" onclick="logout()">Logout</a>
     </nav>
+
     <div class="nav-spacer"></div>
-</header>
+  </header>
 
-<div class="page-wrapper">
+  <div class="page-wrapper">
     <main class="dashboard-container">
-        <section class="schedule-column">
-            <h2>Schedule Today</h2>
-            <div class="schedule-box">
-                <div class="hour-row"><span class="time">6 AM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">7 AM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">8 AM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">9 AM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">10 AM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">11 AM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">12 PM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">1 PM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">2 PM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">3 PM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">4 PM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">5 PM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">6 PM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">7 PM</span><input type="text" placeholder="Add task..."></div>
-                <div class="hour-row"><span class="time">8 PM</span><input type="text" placeholder="Add task..."></div>
+
+      <!-- Schedule -->
+      <section class="schedule-column">
+        <h2>Schedule Today</h2>
+
+        <div class="schedule-box">
+          <div class="hour-row"><span class="time">6 AM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">7 AM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">8 AM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">9 AM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">10 AM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">11 AM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">12 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">1 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">2 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">3 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">4 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">5 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">6 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">7 PM</span><input type="text" placeholder="Add task..."></div>
+          <div class="hour-row"><span class="time">8 PM</span><input type="text" placeholder="Add task..."></div>
+        </div>
+      </section>
+
+      <!-- Tasks + Mood -->
+      <section class="tasks-column">
+
+        <div class="mood-card">
+          <h3>How are you feeling today?</h3>
+
+          <div class="mood-icons">
+            <div class="mood-option" onclick="setMood('Great', 'Images/Great.png')">
+              <img src="Images/Great.png" class="mood-img">
+              <span>Great</span>
             </div>
-        </section>
-        <section class="tasks-column">
-            <div class="mood-card">
-                <h3>How are you feeling today?</h3>
-                <div class="mood-icons">
-                    <div class="mood-option" onclick="setMood('Great', 'Images/Great.png')">
-                        <img src="Images/Great.png" alt="Feeling Great" class="mood-img">
-                        <span>Great</span>
-                    </div>
-                    <div class="mood-option" onclick="setMood('Ok', 'Images/Ok.png')">
-                        <img src="Images/Ok.png" alt="Feeling Ok" class="mood-img">
-                        <span>Ok</span>
-                    </div>
-                    <div class="mood-option" onclick="setMood('Sad', 'Images/Sad.png')">
-                        <img src="Images/Sad.png" alt="Feeling Sad" class="mood-img">
-                        <span>Sad</span>
-                    </div>
-                    <div class="mood-option" onclick="setMood('Angry', 'Images/Angry.png')">
-                        <img src="Images/Angry.png" alt="Feeling Angry" class="mood-img">
-                        <span>Angry</span>
-                    </div>
-                </div>
+
+            <div class="mood-option" onclick="setMood('Ok', 'Images/Ok.png')">
+              <img src="Images/Ok.png" class="mood-img">
+              <span>Ok</span>
             </div>
-            <div class="priority-card">
-                <h2 style="margin-bottom: 20px;">Top 3 Priority Tasks</h2>
-                <div class="task-list">
-                    <label class="task-item">
-                        <input type="text" class="task-input" value="Finish Homework">
-                        <input type="checkbox" class="task-checkbox">
-                    </label>
-                    <label class="task-item">
-                        <input type="text" class="task-input" value="Do Laundry">
-                        <input type="checkbox" class="task-checkbox">
-                    </label>
-                    <label class="task-item">
-                        <input type="text" class="task-input" value="Meditate">
-                        <input type="checkbox" class="task-checkbox">
-                    </label>
-                </div>
+
+            <div class="mood-option" onclick="setMood('Sad', 'Images/Sad.png')">
+              <img src="Images/Sad.png" class="mood-img">
+              <span>Sad</span>
             </div>
-        </section>
+
+            <div class="mood-option" onclick="setMood('Angry', 'Images/Angry.png')">
+              <img src="Images/Angry.png" class="mood-img">
+              <span>Angry</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="priority-card">
+          <h2 style="margin-bottom: 20px;">Top 3 Priority Tasks</h2>
+
+          <div class="task-list">
+            <label class="task-item">
+              <input type="text" class="task-input" value="Finish Homework">
+              <input type="checkbox">
+            </label>
+
+            <label class="task-item">
+              <input type="text" class="task-input" value="Do Laundry">
+              <input type="checkbox">
+            </label>
+
+            <label class="task-item">
+              <input type="text" class="task-input" value="Meditate">
+              <input type="checkbox">
+            </label>
+          </div>
+        </div>
+
+      </section>
+
     </main>
-</div>
+  </div>
 
-<footer class="footer">
+  <!-- Footer -->
+  <footer class="footer">
     <div class="footer-container">
-        <div class="footer-column">
-            <h2>About Us</h2>
-            <p>
-                At ZenSched, we believe that productivity shouldn't come at the cost of your mental well-being. 
-                Our platform is designed using calming design principles to reduce cognitive load and digital anxiety.
-            </p>
-            <div class="footer-contact">
-                <p>XXX-XXX-XXXX</p>
-                <p>ZenSched@gmail.com</p>
-            </div>
+
+      <div class="footer-column">
+        <h2>About Us</h2>
+        <p>
+          At ZenSched, we believe that productivity shouldn't come at the cost of your mental well-being.
+        </p>
+
+        <div class="footer-contact">
+          <p>XXX-XXX-XXXX</p>
+          <p>ZenSched@gmail.com</p>
         </div>
-        <div class="footer-column">
-            <h2>Latest Information</h2>
-            <ul>
-                <li>Record how you are feeling every day to track mood trends.</li>
-                <li>New Breathing Modules: Added to the Wellness Toolbox.</li>
-                <li>Check out your calendar to manage daily tasks!</li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <img src="Images/footer.png" alt="Illustration of person meditating" class="footer-photo">
-        </div>
+      </div>
+
+      <div class="footer-column">
+        <h2>Latest Information</h2>
+        <ul>
+          <li>Record how you are feeling every day to track mood trends.</li>
+          <li>New Breathing Modules added.</li>
+          <li>Check your calendar to manage tasks.</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <img src="Images/footer.png" class="footer-photo">
+      </div>
+
     </div>
-</footer>
+  </footer>
+
 </div>
 
+<!-- SCRIPT -->
 <script>
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-        document.getElementById('login-screen').style.display = 'none';
-        document.getElementById('dashboard-content').style.display = 'block';
-    }
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        localStorage.setItem('isLoggedIn', 'true');
-        document.getElementById('login-screen').style.display = 'none';
-        document.getElementById('dashboard-content').style.display = 'block';
-    });
-    function logout() {
-        localStorage.removeItem('isLoggedIn');
-        location.reload(); 
-    }
-    function setMood(status, imgPath) {
-        const now = new Date();
-        const dateKey = `mood-${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
-        localStorage.setItem(dateKey, imgPath);
-        alert("Mood recorded! Your calendar has been updated.");
-    }
+  if (localStorage.getItem('isLoggedIn') === 'true') {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dashboard-content').style.display = 'block';
+  }
+
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    localStorage.setItem('isLoggedIn', 'true');
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dashboard-content').style.display = 'block';
+  });
+
+  function logout() {
+    localStorage.removeItem('isLoggedIn');
+    location.reload();
+  }
+
+  function setMood(status, imgPath) {
+    const now = new Date();
+    const dateKey = `mood-${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+    localStorage.setItem(dateKey, imgPath);
+
+    alert("Mood recorded!");
+  }
 </script>
 
 </body>
